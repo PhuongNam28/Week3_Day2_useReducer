@@ -1,24 +1,15 @@
-import logo from './logo.svg';
+import Content from "./Component/Content"
+import React, {useContext} from 'react'
+import { ThemeContext } from "./Context/ThemeContext";
 import './App.css';
-
+//You use Context when ever you want to pass a props from parent components to children components without passing through intermediary.
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  const context = useContext(ThemeContext)
+  return (  
+        <div className="App">
+          <button onClick={context.toggleClick}>Toggle Me</button>
+          <Content></Content>
+        </div>
   );
 }
 
